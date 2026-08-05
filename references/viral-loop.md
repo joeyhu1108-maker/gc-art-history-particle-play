@@ -27,13 +27,18 @@ The first visitor promise is not “browse an art-history database.” It is “
 
 4. **Private Preview**
    - Play the personal transformation immediately for the uploader.
-   - Mark it clearly as private and under review.
+   - Mark it clearly as private and not uploaded to the public world.
+   - Allow an immediate local poster download without moderation.
 
-5. **Approved Artifact**
-   - After approval, create the public point and share artifact.
-   - Open download, share, and referral only now.
+5. **Request Public Publishing**
+   - Ask for an explicit publish action and rights/display consent.
+   - Start moderation only after that action.
 
-6. **Referral**
+6. **Approved Public Artifact**
+   - After approval, create the public moment and share artifact.
+   - Open public video download, share, and referral only now.
+
+7. **Referral**
    - Deep-link to the approved point.
    - Reveal the moment quickly.
    - Offer `接上这条轨迹` as the single next action.
@@ -75,6 +80,8 @@ Instrument named events rather than generic clicks:
 - `first_gesture_completed`
 - `personalize_opened`
 - `upload_private_preview_ready`
+- `private_poster_downloaded`
+- `public_publish_requested`
 - `moderation_approved`
 - `share_artifact_ready`
 - `share_action`

@@ -7,7 +7,9 @@ Use this reference whenever user-supplied images or text can enter a public part
 ```text
 draft
   -> uploading
+  -> private_saved
   -> private_preview
+  -> publish_requested
   -> auto_reviewing
        -> approved -> published
        -> manual_review -> approved -> published
@@ -15,7 +17,7 @@ draft
        -> rejected
 ```
 
-Only `published` records may appear in public queries, public media storage, share artifacts, deep links, or friend continuation.
+Only `published` records may appear in public queries, public media storage, public video artifacts, deep links, or friend continuation. A private local poster may be generated and downloaded before publication review because it never becomes a public URL or shared record.
 
 ## Server Pipeline
 
@@ -23,12 +25,13 @@ Only `published` records may appear in public queries, public media storage, sha
 2. Validate size, detected MIME type, dimensions, and pixel count.
 3. Decode and re-encode the image; strip EXIF and location metadata.
 4. Save the original or normalized input in private quarantine.
-5. Moderate the image and associated title, note, and tags.
-6. Apply the platform's versioned decision policy.
-7. Route ambiguous results to human review.
-8. On approval, create a sanitized public derivative.
-9. Create the public point and unlock export and sharing.
-10. Retain a minimal audit record and delete quarantined data according to policy.
+5. Return a private preview and allow an on-device private poster without starting moderation.
+6. Wait for the user's explicit public-publish request and rights/display consent.
+7. Moderate the image and associated title, note, and tags.
+8. Apply the platform's versioned decision policy and route ambiguous results to human review.
+9. On approval, create a sanitized public derivative.
+10. Create the public moment and unlock public video export, sharing, and referrals.
+11. Retain a minimal audit record and delete quarantined data according to policy.
 
 Do not trust client-side moderation or client-provided category labels.
 
@@ -62,7 +65,11 @@ User-declared context is evidence for review, never an automatic bypass.
 
 Private preview:
 
-`正在检查这张图片。这个光点暂时只有你能看见。`
+`这个瞬间已私密保存。你可以预览并下载本地海报，它不会自动发布。`
+
+Publication requested:
+
+`正在检查这张图片。审核通过后才会进入公开世界。`
 
 Approved:
 
@@ -83,7 +90,9 @@ Do not promise a review time until real staffing and service levels exist. Do no
 ```ts
 type ModerationStatus =
   | "uploading"
+  | "private_saved"
   | "private_preview"
+  | "publish_requested"
   | "auto_reviewing"
   | "manual_review"
   | "approved"
