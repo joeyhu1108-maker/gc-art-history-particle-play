@@ -4,6 +4,12 @@ Turn a particle globe or art-history atlas into a mobile-first play, personalize
 
 This Codex Skill was created for **ART LOOKS BACK / Art History Twin**, but its product contracts can be reused by other cultural WebGL experiences.
 
+## Effect preview
+
+![ART LOOKS BACK particle Earth play loop](assets/particle-earth-play.jpg)
+
+*Particle Earth → first gesture → one personal moment. The image shows the private test entrance; public publishing remains moderation-gated.*
+
 ## What it helps with
 
 - Put the particle Earth on the first screen and make it playable in under three seconds.
