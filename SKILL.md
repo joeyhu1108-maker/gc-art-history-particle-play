@@ -9,7 +9,7 @@ Turn a visually strong particle Earth into a public experience people can unders
 
 The propagation loop is the product:
 
-`see the Earth -> touch the effect -> add my moment -> private preview -> moderation -> publish -> share -> friend continues`
+`see the Earth -> touch the effect -> add my moment -> private preview -> save locally -> request public publishing -> moderation -> publish -> share -> friend continues`
 
 Do not bury the particle effect behind a long introduction, art-history explanation, login wall, or gallery navigation.
 
@@ -22,9 +22,10 @@ The first useful release should let a new visitor:
 3. understand the gesture without a tutorial;
 4. optionally upload one image and one short line;
 5. receive an immediate private particle preview;
-6. publish only after content moderation;
-7. generate a short share artifact;
-8. send a deep link that opens the visitor's point, not a generic homepage.
+6. save a private local poster without waiting for moderation;
+7. explicitly request public publishing and pass content moderation;
+8. generate a public share artifact after approval;
+9. send a deep link that opens the visitor's moment, not a generic homepage.
 
 ## Stable Product Contracts
 
@@ -36,8 +37,9 @@ Preserve these contracts unless the user explicitly changes them:
 - The main effect is one coherent transformation: pull or tear, gather, reveal, burst, return.
 - The user's current point is the clearest chromatic signal; the rest of the world stays restrained.
 - Public UGC never appears before server-side approval.
-- Uploaders may see a private preview while moderation is pending.
-- Download, public share, public point, and friend continuation remain locked until approval.
+- Uploaders may keep a private preview and download a local private poster before requesting publication.
+- Moderation starts only after an explicit public-publish action.
+- Public video download, public share, public point, referral deep link, and friend continuation remain locked until approval.
 - The mobile experience is primary; desktop is an intentional adaptation.
 - Reduced-motion and low-performance fallbacks remain usable.
 - Local preview, generated artifact, approved record, public route, and published deployment are separate status claims.
@@ -96,11 +98,11 @@ Read [references/viral-loop.md](references/viral-loop.md) when designing the ent
 
 ### 4. Separate immediate play from public publishing
 
-The user may receive an immediate local or private preview, but an upload must follow this state path:
+The user may receive an immediate local or private preview. Saving privately must not silently start public moderation. Use this state path:
 
-`draft -> uploading -> private_preview -> auto_reviewing -> approved -> published`
+`draft -> uploading -> private_saved -> private_preview -> publish_requested -> auto_reviewing -> approved -> published`
 
-Ambiguous content branches to `manual_review`. Unsafe content branches to `rejected`. A rejected or pending item must not have a public media URL, public globe point, downloadable public clip, or referral deep link.
+Ambiguous publication requests branch to `manual_review`. Unsafe publication requests branch to `rejected`. A private, rejected, or pending item may retain its private preview and local poster, but must not have a public media URL, public globe point, downloadable public clip, or referral deep link.
 
 Read [references/moderation.md](references/moderation.md) before implementing user uploads, visibility rules, review UI, rejection, appeal, or public queries.
 
@@ -123,7 +125,7 @@ Default end copy:
 
 `你的一刻，已经进入艺术史`
 
-Provide a static poster fallback when browser or device video export is unreliable. A prompt, preview, submitted render, downloaded file, and verified playable file are different states.
+Provide a static private poster immediately when browser or device video export is unreliable. Public video export remains approval-gated. A prompt, private preview, local poster, submitted render, downloaded public file, and verified playable file are different states.
 
 ### 6. Make sharing reopen the meaningful state
 
@@ -140,7 +142,8 @@ Test, at minimum:
 - fresh mobile entry;
 - first gesture and visible response;
 - pointer, touch, and drag release;
-- private preview before moderation;
+- private preview and local poster download before moderation;
+- explicit public-publish request starting moderation;
 - auto-approved path;
 - manual-review path;
 - rejected path;
@@ -235,7 +238,7 @@ Treat targets as hypotheses until a real pilot supplies evidence.
 - bumpy, protruding, over-glowing particle spheres;
 - upload forms as the first screen;
 - public display before moderation;
-- public downloads that bypass approval;
+- public video downloads that bypass approval;
 - avatars, chat, rankings, badges, or realtime rooms in v1;
 - adding a gallery, metaverse, or social network before the share loop works;
 - claiming a local preview or prepared package is published;
@@ -250,6 +253,7 @@ Before finalizing, confirm:
 - Does the effect use one coherent cause and return cleanly?
 - Does personal input create a visible consequence?
 - Is the private preview clearly separated from public publication?
+- Can the uploader save a private local poster without triggering moderation?
 - Can no pending or rejected record leak through public APIs or media URLs?
 - Does approval unlock a real share artifact and point-specific link?
 - Can a referred visitor continue without first understanding the whole product?

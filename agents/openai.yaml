@@ -1,4 +1,4 @@
 interface:
   display_name: "GC Art History Particle Play"
   short_description: "Turn a particle Earth into a safe viral play-and-share loop"
-  default_prompt: "Use $gc-art-history-particle-play to turn this particle-globe experience into an immediate mobile play loop with private upload preview, moderation-gated publishing, and a point-specific share artifact."
+  default_prompt: "Use $gc-art-history-particle-play to turn this particle-globe experience into an immediate mobile play loop with private preview and local poster download, explicit moderation-gated public publishing, and a moment-specific share artifact."

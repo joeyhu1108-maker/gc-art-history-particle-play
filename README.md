@@ -8,8 +8,8 @@ This Codex Skill was created for **ART LOOKS BACK / Art History Twin**, but its 
 
 - Put the particle Earth on the first screen and make it playable in under three seconds.
 - Design one coherent gesture: pull or tear, gather, reveal, burst, return.
-- Let visitors create an immediate private preview from one image and one short line.
-- Keep public UGC behind authoritative server-side moderation.
+- Let visitors create an immediate private preview and local poster from one image and one short line.
+- Start authoritative server-side moderation only after an explicit public-publish request.
 - Produce a point-specific deep link and an optional four-second vertical share loop.
 - Audit the real mobile route, reduced-motion fallback, and publication boundary.
 
@@ -30,7 +30,7 @@ Restart Codex if the Skill is not discovered immediately.
 Invoke it explicitly:
 
 ```text
-Use $gc-art-history-particle-play to turn this particle-globe experience into an immediate mobile play loop with private upload preview, moderation-gated publishing, and a point-specific share artifact.
+Use $gc-art-history-particle-play to turn this particle-globe experience into an immediate mobile play loop with private preview and local poster download, explicit moderation-gated public publishing, and a moment-specific share artifact.
 ```
 
 It supports four working modes:
@@ -56,7 +56,7 @@ It supports four working modes:
 
 ## Safety contract
 
-Uploads may receive a private preview immediately, but only approved and published records may appear in public queries, public media, downloadable clips, deep links, or friend-continuation flows. This Skill is product and implementation guidance, not legal advice; verify current moderation-provider capabilities and applicable obligations before launch.
+Uploads may receive a private preview and on-device poster immediately. Moderation starts only when the user explicitly requests public publishing, and only approved published records may appear in public queries, public media, downloadable public clips, deep links, or friend-continuation flows. This Skill is product and implementation guidance, not legal advice; verify current moderation-provider capabilities and applicable obligations before launch.
 
 ## License
 
