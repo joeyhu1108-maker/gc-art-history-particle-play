@@ -17,7 +17,19 @@ This Codex Skill was created for **ART LOOKS BACK / Art History Twin**, but its 
 - Let visitors create an immediate private preview and local poster from one image and one short line.
 - Start authoritative server-side moderation only after an explicit public-publish request.
 - Produce a point-specific deep link and an optional four-second vertical share loop.
+- Turn each personal light point into a private, walkable 3D gallery made from user-owned images.
 - Audit the real mobile route, reduced-motion fallback, and publication boundary.
+
+## New: personal 3D gallery starter
+
+The repository now includes a reusable React + Three.js starter at [`templates/personal-gallery`](templates/personal-gallery/README.md). It provides:
+
+- a generic suspended-work gallery engine;
+- a one-image private upload entrance;
+- an upload → gallery → moment-detail reference flow;
+- mobile touch, wheel/drag navigation, keyboard navigation, and reduced-motion handling.
+
+No Art History Twin museum records or artwork assets are included. The starter only renders images supplied by the user or host application.
 
 ## Install
 
@@ -39,6 +51,23 @@ Invoke it explicitly:
 Use $gc-art-history-particle-play to turn this particle-globe experience into an immediate mobile play loop with private preview and local poster download, explicit moderation-gated public publishing, and a moment-specific share artifact.
 ```
 
+To add the personal gallery layer:
+
+```text
+Use $gc-art-history-particle-play to keep the particle Earth as the first screen, let a visitor upload one private moment, create a personal light point, and make clicking that point zoom into the reusable 3D personal gallery. Keep all public publishing moderation-gated.
+```
+
+## How to play
+
+1. Open the particle Earth and drag it immediately — no login is required for the first effect.
+2. Scroll through time and watch the particle field respond.
+3. Choose **放入我的第一个瞬间** and upload one JPG, PNG, or WebP image.
+4. Add a short title; place, year, and one sentence are optional.
+5. Choose **放进我的展厅**. The private image becomes one personal light point and opens inside the 3D room.
+6. Scroll or drag to walk, tap a hanging work to select it, then choose **打开这个瞬间**.
+7. Return to **MY GALLERY** and choose **ADD A MOMENT** to build a larger personal exhibition.
+8. Only use a separate **request public publishing** action when you want the work reviewed for the public globe.
+
 It supports four working modes:
 
 - `strategy` — define the smallest viral loop and safety boundary.
@@ -53,12 +82,14 @@ It supports four working modes:
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
-└── references/
+├── references/
     ├── moderation.md
-    └── viral-loop.md
+│   └── viral-loop.md
+└── templates/
+    └── personal-gallery/
 ```
 
-`SKILL.md` is the source of truth. The references keep the public-growth loop and moderation requirements focused without bloating the main instructions.
+`SKILL.md` is the source of truth. The references define the public-growth and moderation boundaries; the template is an implementation starting point, not a hosted application.
 
 ## Safety contract
 
