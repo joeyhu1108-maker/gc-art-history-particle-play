@@ -43,6 +43,8 @@ Preserve these contracts unless the user explicitly changes them:
 - The mobile experience is primary; desktop is an intentional adaptation.
 - Reduced-motion and low-performance fallbacks remain usable.
 - Local preview, generated artifact, approved record, public route, and published deployment are separate status claims.
+- A personal point may open a private 3D gallery, but the gallery is a consequence of creation, never a replacement for the immediate Earth interaction.
+- The reusable gallery accepts user-owned image records only; curated museum assets and public UGC stay in separate provenance lanes.
 
 For Art History Twin, preserve `OCEAN / SIGNAL / YOU` and the existing immersive archive. Add the viral play path as a fast entrance; do not flatten the whole product into a generic upload form.
 
@@ -95,6 +97,20 @@ The main effect should read as a large field transformation:
 Avoid generic fireworks, random sparkles, constant camera motion, or several competing particle tricks.
 
 Read [references/viral-loop.md](references/viral-loop.md) when designing the entrance, personalization, share artifact, referral path, or launch metrics.
+
+### 3b. Add the optional personal gallery layer
+
+After a visitor saves a private moment, it may become a clickable personal light point. Clicking the point should focus the globe, zoom toward the point, and then open a small personal 3D gallery.
+
+Use [`templates/personal-gallery`](templates/personal-gallery/README.md) as the gallery adapter. It provides a generic Three.js suspended-work renderer and a private upload entry without replacing the host particle Earth or bundling museum artwork data.
+
+Read [`references/beginner-playbook.md`](references/beginner-playbook.md) when the visitor may not know how to prepare an image, discover the first gesture, or understand the point-to-gallery transition.
+
+Preserve this route:
+
+`particle Earth -> private upload -> personal point -> point focus -> personal 3D gallery -> moment detail -> back to gallery`
+
+Keep scroll/drag walking, touch selection, mobile layout, keyboard navigation, and reduced-motion behavior usable. The gallery should begin with the visitor's own work and may grow as they add moments; do not seed it with public points or unrelated collection records.
 
 ### 4. Separate immediate play from public publishing
 
@@ -241,6 +257,8 @@ Treat targets as hypotheses until a real pilot supplies evidence.
 - public video downloads that bypass approval;
 - avatars, chat, rankings, badges, or realtime rooms in v1;
 - adding a gallery, metaverse, or social network before the share loop works;
+- opening the 3D gallery before the visitor has created or selected a meaningful point;
+- bundling proprietary, museum, or third-party artwork assets with the generic gallery engine;
 - claiming a local preview or prepared package is published;
 - changing the entire visual system when only the propagation entrance is requested.
 
@@ -252,6 +270,7 @@ Before finalizing, confirm:
 - Is the particle Earth still the unmistakable protagonist?
 - Does the effect use one coherent cause and return cleanly?
 - Does personal input create a visible consequence?
+- Can the visitor click their point, enter the personal gallery, open the moment, and return without losing context?
 - Is the private preview clearly separated from public publication?
 - Can the uploader save a private local poster without triggering moderation?
 - Can no pending or rejected record leak through public APIs or media URLs?
