@@ -1,5 +1,7 @@
 # Beginner Playbook
 
+[中文版](beginner-playbook.zh-CN.md)
+
 Use this guide when the visitor is not a designer, developer, or experienced AI creator.
 
 ## The first 30 seconds

@@ -1,5 +1,7 @@
 # Personal Gallery Adapter
 
+[中文版](README.zh-CN.md)
+
 This adapter connects an existing particle Earth to a private, walkable Three.js gallery. It contains no particle-Earth replacement, museum collection records, or artwork files.
 
 > Do not mount this folder as a standalone first screen. The visitor must see and touch the host particle Earth first. Upload appears only after the Earth responds; the gallery opens only after the visitor clicks a created personal point.

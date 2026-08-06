@@ -1,5 +1,7 @@
 # GC Art History Particle Play
 
+[中文说明](README.zh-CN.md)
+
 Turn a particle globe or art-history atlas into a mobile-first play, personalize, moderate, publish, and share loop.
 
 This Codex Skill was created for **ART LOOKS BACK / Art History Twin**, but its product contracts can be reused by other cultural WebGL experiences.
