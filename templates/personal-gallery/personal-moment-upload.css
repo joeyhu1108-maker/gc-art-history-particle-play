@@ -1,23 +1,16 @@
-.personal-gallery-starter {
-  min-height: 100svh;
-  color: rgba(242, 247, 244, 0.92);
-  background: #020403;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-}
-
 .personal-moment-upload {
   width: min(620px, calc(100vw - 32px));
   margin: 0 auto;
   padding: max(36px, env(safe-area-inset-top)) 0 max(36px, env(safe-area-inset-bottom));
+  color: rgba(242, 247, 244, 0.92);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
 .personal-moment-upload header {
   margin-bottom: 30px;
 }
 
-.personal-moment-upload header small,
-.personal-moment-detail > small,
-.personal-gallery-add span {
+.personal-moment-upload header small {
   color: #86d8ea;
   font-size: 11px;
   letter-spacing: 0.18em;
@@ -31,8 +24,7 @@
   line-height: 0.98;
 }
 
-.personal-moment-upload header p,
-.personal-moment-detail p {
+.personal-moment-upload header p {
   color: rgba(220, 232, 224, 0.58);
   line-height: 1.7;
 }
@@ -108,9 +100,7 @@
   margin-top: 26px;
 }
 
-.personal-moment-upload button,
-.personal-moment-detail button,
-.personal-gallery-add {
+.personal-moment-upload button {
   min-height: 48px;
   border: 1px solid rgba(220, 238, 228, 0.18);
   border-radius: 999px;
@@ -131,65 +121,6 @@
   opacity: 0.52;
 }
 
-.personal-gallery-stage {
-  position: fixed;
-  inset: 0;
-  transition: opacity 240ms ease;
-}
-
-.personal-gallery-add {
-  position: absolute;
-  z-index: 20;
-  top: max(18px, env(safe-area-inset-top));
-  right: 18px;
-  display: grid;
-  min-height: 48px;
-  place-items: center;
-  color: rgba(240, 246, 242, 0.9);
-  background: rgba(12, 24, 21, 0.72);
-  backdrop-filter: blur(18px);
-}
-
-.personal-gallery-add small {
-  color: rgba(220, 232, 224, 0.54);
-  font-size: 11px;
-}
-
-.personal-moment-detail {
-  position: fixed;
-  z-index: 40;
-  inset: 0;
-  overflow: auto;
-  padding: max(28px, env(safe-area-inset-top)) max(20px, calc((100vw - 720px) / 2)) max(40px, env(safe-area-inset-bottom));
-  color: rgba(242, 247, 244, 0.92);
-  background: #020403;
-}
-
-.personal-moment-detail img {
-  display: block;
-  width: 100%;
-  max-height: 62svh;
-  margin: 28px 0 22px;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.personal-moment-detail h2 {
-  margin: 9px 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(34px, 7vw, 62px);
-  font-weight: 400;
-}
-
-.personal-moment-detail em {
-  display: block;
-  margin-top: 28px;
-  color: rgba(220, 232, 224, 0.42);
-  font-size: 11px;
-  font-style: normal;
-  letter-spacing: 0.16em;
-}
-
 @media (max-width: 620px) {
   .personal-moment-row {
     grid-template-columns: 1fr 96px;
@@ -201,17 +132,5 @@
 
   .personal-moment-upload button {
     width: 100%;
-  }
-
-  .personal-gallery-add {
-    right: 14px;
-    min-height: 44px;
-    padding: 0 14px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .personal-gallery-stage {
-    transition: none;
   }
 }

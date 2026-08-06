@@ -102,7 +102,9 @@ Read [references/viral-loop.md](references/viral-loop.md) when designing the ent
 
 After a visitor saves a private moment, it may become a clickable personal light point. Clicking the point should focus the globe, zoom toward the point, and then open a small personal 3D gallery.
 
-Use [`templates/personal-gallery`](templates/personal-gallery/README.md) as the reference implementation. The template provides a generic Three.js suspended-work renderer and a private upload entry without bundling museum artwork data.
+Use [`templates/personal-gallery`](templates/personal-gallery/README.md) as the gallery adapter. It provides a generic Three.js suspended-work renderer and a private upload entry without replacing the host particle Earth or bundling museum artwork data.
+
+Read [`references/beginner-playbook.md`](references/beginner-playbook.md) when the visitor may not know how to prepare an image, discover the first gesture, or understand the point-to-gallery transition.
 
 Preserve this route:
 

@@ -20,16 +20,18 @@ This Codex Skill was created for **ART LOOKS BACK / Art History Twin**, but its 
 - Turn each personal light point into a private, walkable 3D gallery made from user-owned images.
 - Audit the real mobile route, reduced-motion fallback, and publication boundary.
 
-## New: personal 3D gallery starter
+## New: personal 3D gallery adapter
 
-The repository now includes a reusable React + Three.js starter at [`templates/personal-gallery`](templates/personal-gallery/README.md). It provides:
+The repository now includes a reusable React + Three.js adapter at [`templates/personal-gallery`](templates/personal-gallery/README.md). It provides:
 
 - a generic suspended-work gallery engine;
 - a one-image private upload entrance;
-- an upload → gallery → moment-detail reference flow;
+- automatic aspect-ratio-preserving resize and web conversion;
 - mobile touch, wheel/drag navigation, keyboard navigation, and reduced-motion handling.
 
-No Art History Twin museum records or artwork assets are included. The starter only renders images supplied by the user or host application.
+It is intentionally not a standalone website: the existing particle Earth remains the first screen and owns the point interaction. No Art History Twin museum records or artwork assets are included.
+
+For a visitor who does not know how to prepare images or use the experience, follow [`references/beginner-playbook.md`](references/beginner-playbook.md). The product should resize and convert the image automatically; the visitor should only choose one clear image.
 
 ## Install
 
@@ -84,7 +86,8 @@ It supports four working modes:
 │   └── openai.yaml
 ├── references/
     ├── moderation.md
-│   └── viral-loop.md
+│   ├── viral-loop.md
+│   └── beginner-playbook.md
 └── templates/
     └── personal-gallery/
 ```

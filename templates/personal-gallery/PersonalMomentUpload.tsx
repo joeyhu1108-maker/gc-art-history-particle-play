@@ -1,5 +1,5 @@
 import { useId, useState, type FormEvent } from "react";
-import "./personal-gallery-starter.css";
+import "./personal-moment-upload.css";
 
 export type PersonalMomentDraft = {
   file: File;

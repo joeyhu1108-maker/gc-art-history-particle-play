@@ -1,25 +1,25 @@
-# Personal Gallery Starter
+# Personal Gallery Adapter
 
-This template turns user-owned images into a private, walkable Three.js gallery. It contains no museum collection records or artwork files.
+This adapter connects an existing particle Earth to a private, walkable Three.js gallery. It contains no particle-Earth replacement, museum collection records, or artwork files.
+
+> Do not mount this folder as a standalone first screen. The visitor must see and touch the host particle Earth first. Upload appears only after the Earth responds; the gallery opens only after the visitor clicks a created personal point.
 
 ## What is included
 
 - `HangingGallery.tsx` — reusable Three.js gallery engine for up to 12 image items;
-- `PersonalMomentUpload.tsx` — one-image private upload entrance;
-- `PersonalGalleryStarter.tsx` — minimal upload → gallery → detail loop;
-- two scoped CSS files for desktop, touch, mobile, and reduced-motion behavior.
+- `PersonalMomentUpload.tsx` — private one-image input to open after the first Earth interaction;
+- `preparePersonalMomentImage.ts` — automatic aspect-ratio-preserving resize and web conversion;
+- scoped CSS for desktop, touch, mobile, and reduced-motion behavior.
 
-## Run the starter
+## Required host flow
 
-```bash
-cd templates/personal-gallery
-npm install
-npm run dev
-```
+The host application owns this state path:
 
-Then upload one JPG, PNG, or WebP image. The browser will open it inside the private 3D room.
+`earth -> earth responded -> upload -> private point on earth -> click point -> gallery -> detail`
 
-## Copy into an existing project
+The adapter provides the upload and gallery pieces. Reuse the particle Earth that already belongs to the product; do not replace it with a generic sphere or open directly on the gallery.
+
+## Install in an existing project
 
 Copy this folder into a React + TypeScript project and install Three.js:
 
@@ -27,17 +27,39 @@ Copy this folder into a React + TypeScript project and install Three.js:
 npm install three
 ```
 
-Render the starter inside a full-page route:
+Mount these pieces only from state owned by the existing Earth experience:
 
 ```tsx
-import { PersonalGalleryStarter } from "./personal-gallery";
+import {
+  HangingGallery,
+  PersonalMomentUpload,
+  preparePersonalMomentImage,
+  type PersonalMomentDraft,
+} from "./personal-gallery";
 
-export default function App() {
-  return <PersonalGalleryStarter />;
+async function saveMomentAndCreateEarthPoint(draft: PersonalMomentDraft) {
+  const image = await preparePersonalMomentImage(draft.file);
+  await savePrivateMoment({ ...draft, image });
+  createPrivateEarthPoint();
 }
+
+{phase === "upload" ? (
+  <PersonalMomentUpload onSavePrivate={saveMomentAndCreateEarthPoint} />
+) : null}
+
+{phase === "gallery" ? (
+  <HangingGallery
+    items={privateMoments}
+    active
+    reduceMotion={false}
+    onOpen={openMomentDetail}
+  />
+) : null}
 ```
 
-The starter keeps uploaded images in browser memory through `URL.createObjectURL`. Refreshing the page clears the experience. Replace `savePrivate` in `PersonalGalleryStarter.tsx` with your private storage gateway when persistence is required.
+Here, `phase === "upload"` is allowed only after the visitor has interacted with the Earth. Set `phase === "gallery"` only when they click their own new point.
+
+The host should create an immediate private preview with `URL.createObjectURL` or a private storage gateway. Refreshing clears browser-only URLs. Public persistence and moderation are separate services.
 
 ## Use the engine with your own data
 
@@ -80,3 +102,5 @@ Before public launch, add private quarantine storage, server-side image and text
 - Clicking that point zooms into this gallery.
 - Scroll or drag walks through the room; touch selects a work.
 - The room may contain several personal moments, but it must not become an unmoderated public feed.
+
+For non-technical visitors, follow [`references/beginner-playbook.md`](../../references/beginner-playbook.md).
